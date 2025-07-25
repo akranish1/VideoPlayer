@@ -11,7 +11,9 @@ const containerStyle = {
     borderRadius: '24px',
     overflow: 'hidden',
     backgroundColor: '#f1efefff',
-    width: '500px',
+     width: '500px',
+     maxWidth: '80vw',
+    transition: 'width 0.3s ease',
   };
 
   const inputStyle = {
