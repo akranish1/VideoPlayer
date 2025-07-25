@@ -32,6 +32,7 @@ export default function Sidebar(props) {
     padding: '7px',
     borderRadius: '10px',
     cursor: 'pointer',
+    backgroundColor: 'white',
     width:'100%',
     transition: 'background-color 0.3s ease',
     marginBottom:'20px',

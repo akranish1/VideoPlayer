@@ -10,11 +10,13 @@ const TitleManager = () => {
     const getTitle = () => {
       switch (path) {
         case '/':
-          return 'Home';
+          return 'Login';
         case '/login':
           return 'Login';
         case '/signup':
           return 'Sign Up';
+        case '/home':
+          return 'Home';
         default:
           return 'My App';
       }
