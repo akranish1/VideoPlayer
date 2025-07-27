@@ -1,4 +1,6 @@
 import React,{ useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 const Iconimg=()=>{
 return (<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 50 50">
@@ -35,14 +37,16 @@ const containerStyle = {
   };
 
 const Searchicon = () => {
-    const [inputValue, setInputValue] = useState('');
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    alert(`Searching for: ${inputValue}`);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query)}`);
+    }
   };
   return (
    <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -51,8 +55,8 @@ const Searchicon = () => {
           type="text"
           placeholder="Search"
           style={inputStyle}
-          value={inputValue}
-          onChange={handleChange}
+           value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
         <button style={buttonStyle} onClick={handleSearch}>
           <Iconimg/>

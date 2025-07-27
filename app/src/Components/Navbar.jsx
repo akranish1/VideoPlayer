@@ -4,6 +4,7 @@ import Logoicon from './Icons/Logoicon';
 import Searchicon from './Icons/Searchicon';
 import Usericon from './Icons/Usericon';
 import Sidebar from './Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -18,7 +19,12 @@ export default function Navbar() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+
+
   const navbarStyle = {
+    position: 'fixed',
+    width: '100%',
+    zIndex: 1000,
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
@@ -33,7 +39,7 @@ export default function Navbar() {
   const leftStyle = {
     display: 'flex',
     alignItems: 'center',
-    
+
     gap: '20px',
     marginLeft: isSidebarOpen ? '200px' : '0',
     transition: 'margin-left 0.3s ease',
@@ -52,6 +58,7 @@ export default function Navbar() {
   };
 
   return (
+
     <div style={navbarStyle}>
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <div style={leftStyle}>
