@@ -1,0 +1,61 @@
+.feed-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+          padding: 24px;
+          background-color: white;
+          transition: margin-left 0.3s ease;
+  margin-left: 0;
+        }
+        .feed-container.shifted {
+  margin-left: 200px; 
+}
+        .video-card {
+      
+          background-color: #181818;
+          border-radius: 8px;
+          overflow: hidden;
+          color: #fff;
+          transition: transform 0.2s ease;
+          cursor: pointer;
+          
+        }
+        .video-card:hover {
+          transform: scale(1.03);
+        }
+        .thumbnail {
+          width: 100%;
+          height: auto;
+          display: block;
+        
+        }
+        .video-info {
+          padding: 12px;
+        }
+        .video-title {
+          font-size: 14px;
+          font-weight: 600;
+          margin: 0;
+          line-height: 1.5;
+          max-height: 3em;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .channel-title {
+          font-size: 12px;
+          color: #aaa;
+          margin-top: 4px;
+        }
+
+        @media (max-width: 1200px) {
+          .feed-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        
+
+        @media (max-width: 500px) {
+          .feed-container {
+            grid-template-columns: repeat(1,1fr);
+          }
+        }

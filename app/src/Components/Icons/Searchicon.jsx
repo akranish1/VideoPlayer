@@ -43,6 +43,7 @@ const Searchicon = () => {
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
+    
     e.preventDefault();
     if (query.trim()) {
       navigate(`/search?q=${encodeURIComponent(query)}`);

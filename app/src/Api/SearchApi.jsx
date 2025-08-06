@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyAPE6Ml6dv1pU-Pj-JImF9lzNVnQk85ttc";
+const API_KEY = "AIzaSyDZTwHv5cxbv8T3KXh5l80nPLzFFAhi7rg";
 
 export const SearchApi = async (query) => {
   const res = await fetch(

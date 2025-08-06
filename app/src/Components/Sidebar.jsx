@@ -4,14 +4,22 @@ import Homeicon from './Icons/Homeicon';
 import Likeicon from './Icons/Likeicon';
 import WatchLater from './Icons/WatchLater';
 import Historyicon from './Icons/Historyicon';
+import { useNavigate } from 'react-router-dom';
+import { useSidebar } from '../context/SidebarContext';
 
-export default function Sidebar(props) {
-  const isOpen = props.isOpen;
+
+export default function Sidebar() {
+  const { isSidebarOpen, closeSidebar } = useSidebar();
+  const navigate=useNavigate();
+  const handleHomeSidebar=()=>{
+    navigate('/');
+    closeSidebar();
+  }
 
   const sidebarStyle = {
     position: 'fixed',
     top: 0,
-    left: isOpen ? '0' : '-200px',
+    left: isSidebarOpen? '0' : '-200px',
     width: '200px',
     height: '100vh',
     backgroundColor: 'white',
@@ -43,11 +51,13 @@ export default function Sidebar(props) {
     backgroundColor: '#87cefa',
   };
 
+
+
   return (
     <div style={sidebarStyle}>
-      <button onClick={props.onClose} style={closeButtonStyle}><Crossicon/></button>
+      <button onClick={closeSidebar} style={closeButtonStyle}><Crossicon/></button>
       <ul style={{ listStyle: 'none', padding: 0,}}>
-        <li><button style={menuItemStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor}
+        <li><button style={menuItemStyle} onClick={handleHomeSidebar}onMouseEnter={e => e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor}
         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}><Homeicon/></button></li>
         <li><button style={menuItemStyle} onMouseEnter={e => e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor}
         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}><Likeicon/></button></li>

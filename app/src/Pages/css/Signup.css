@@ -1,0 +1,52 @@
+.containerStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.cardStyle {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.headingStyle {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.subheadingStyle {
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inputStyle {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.buttonStyle {
+    width: 100%;
+    background-color: #7c3aed;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}

@@ -5,6 +5,7 @@ import Searchicon from './Icons/Searchicon';
 import Usericon from './Icons/Usericon';
 import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
+import { useSidebar } from '../context/SidebarContext';
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -13,12 +14,7 @@ export default function Navbar() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
+const { isSidebarOpen, toggleSidebar } = useSidebar();
 
 
   const navbarStyle = {
@@ -34,6 +30,7 @@ export default function Navbar() {
     color: 'white',
     marginLeft: isSidebarOpen ? '10px' : '0',
     transition: 'margin-left 0.3s ease',
+
   };
 
   const leftStyle = {
@@ -60,7 +57,6 @@ export default function Navbar() {
   return (
 
     <div style={navbarStyle}>
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <div style={leftStyle}>
         {!isSidebarOpen && (<button
           onClick={toggleSidebar}

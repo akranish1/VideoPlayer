@@ -1,24 +1,46 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import Login from '../Pages/Login';
 import Signup from '../Pages/Signup';
 
 import Home from '../Pages/Home';
-import TitleManager from '../Components/Title/TitleManager';
 import Sidebar from '../Components/Sidebar';
 import Searchres from '../Pages/Searchres';
+import { ToastContainer } from 'react-toastify';
+
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+    
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/search",
+    element: <Searchres />,
+  },
+  
+]);
 
 const AppRouting = () => {
-    return (
-        <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/sidebar" element={<Sidebar/>} />
-            <Route path="/search" element={<Searchres />} />
-        </Routes>
-    )
+    return <>
+    <RouterProvider router={router} />
+    <ToastContainer/>
+    </>
 }
 
 export default AppRouting

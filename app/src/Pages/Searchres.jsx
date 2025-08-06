@@ -31,7 +31,7 @@ const Searchres = () => {
           margin-bottom: 16px;
         }
 
-        .search-grid {
+        .searchgrid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 16px;
@@ -64,13 +64,13 @@ const Searchres = () => {
         }
 
         @media (max-width: 900px) {
-          .search-grid {
+          .searchgrid {
             grid-template-columns: repeat(2, 1fr);
           }
         }
 
         @media (max-width: 600px) {
-          .search-grid {
+          .searchgrid {
             grid-template-columns: 1fr;
           }
         }
@@ -78,7 +78,7 @@ const Searchres = () => {
 
       <div className="search-container">
         <h2 className="search-heading">Results for "{query}"</h2>
-        <div className="search-grid">
+        <div className="searchgrid">
           {videos.map((video) => (
             <div key={video.id.videoId} className="video-card">
               <img
